@@ -6,16 +6,12 @@ import java.sql.SQLException;
 
 public class DBConnectionProvider {
     private final static DBConnectionProvider INSTANCE = new DBConnectionProvider();
-
     private Connection connection;
-
     private static final String DB_URL = "jdbc:mysql://localhost:3306/company_employee?useUnicode=true";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
-
     private DBConnectionProvider() {
     }
-
     public Connection getConnection() {
         try {
             if (connection == null || connection.isClosed()) {
@@ -26,7 +22,6 @@ public class DBConnectionProvider {
         }
         return connection;
     }
-
     public static DBConnectionProvider getInstance() {
         return INSTANCE;
     }
